@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Management</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+		<link rel="stylesheet" href="Management.css">
+	</head>
+	<body>
+	<header>
+		<ul>
+			<li><a href="Write.html">Write</a></li>
+			<li><a href="Edit.html">Edit</a></li>
+			<li><a href="Login.html">Logout</a></li>
+		</ul>
+		<a href="Index.html" class="title">Blog</a>
+	</header>
+	<div class="contents">
+		<p class="management">Management</p>
+		<div class="table_wrapper">
+	      <div class="row">
+		      <div class="col s4 title">ID</div>
+		      <div class="col s4 title">ユーザID</div>
+		      <div class="col s4 title"></div>
+		      <div class="col s4">1</div>
+		      <div class="col s4">ABCDE</div>
+		      <div class="col s4">
+			      <a class="waves-effect waves-light btn"  href="Index.html?user_id=${user.id}">一覧</a>
+			      <a class="waves-effect waves-light btn middle"  href="Edit.html?user_id=${user.id}">編集</a>
+			      <a class="waves-effect waves-light btn"  href="UserDelete?user_id=${user.id}" onclick='return confirm("本当に「${user.name}」を削除しますか？");'>削除</a>
+		      </div>
+  		  </div>
+		</div>
+		<div class="table_wrapper">
+	      <div class="row">
+		      <div class="col s4 title">ID</div>
+		      <div class="col s4 title">ユーザID</div>
+		      <div class="col s4 title"></div>
+		      <div class="col s4">2</div>
+		      <div class="col s4">ABCDE</div>
+		      <div class="col s4">
+			      <a class="waves-effect waves-light btn"  href="Index.html?user_id=${user.id}">一覧</a>
+			      <a class="waves-effect waves-light btn middle" href="Edit.html?user_id=${user.id}">編集</a>
+			      <a class="waves-effect waves-light btn"  href="UserDelete?user_id=${user.id}" onclick='return confirm("本当に「${user.name}」を削除しますか？");'>削除</a>
+		      </div>
+  		  </div>
+		</div>
+		<div class="table_wrapper">
+	      <div class="row">
+		      <div class="col s4 title">ID</div>
+		      <div class="col s4 title">ユーザID</div>
+		      <div class="col s4 title"></div>
+		      <div class="col s4">3</div>
+		      <div class="col s4">ABCDE</div>
+		      <div class="col s4">
+			      <a class="waves-effect waves-light btn"  href="Index.html?user_id=${user.id}">一覧</a>
+			      <a class="waves-effect waves-light btn middle" href="Edit.html?user_id=${user.id}">編集</a>
+			      <a class="waves-effect waves-light btn"  href="UserDelete?user_id=${user.id}" onclick='return confirm("本当に「${user.name}」を削除しますか？");'>削除</a>
+		      </div>
+  		  </div>
+		</div>
+		<div class="table_wrapper">
+	      <div class="row">
+		      <div class="col s4 title">ID</div>
+		      <div class="col s4 title">ユーザID</div>
+		      <div class="col s4 title"></div>
+		      <div class="col s4">4</div>
+		      <div class="col s4">ABCDE</div>
+		      <div class="col s4">
+			      <a class="waves-effect waves-light btn"  href="Index.html?user_id=${user.id}">一覧</a>
+			      <a class="waves-effect waves-light btn middle" href="Edit.html?user_id=${user.id}">編集</a>
+			      <a class="waves-effect waves-light btn"  href="UserDelete?user_id=${user.id}" onclick='return confirm("本当に「${user.name}」を削除しますか？");'>削除</a>
+		      </div>
+  		  </div>
+		</div>
+		<div class="table_wrapper">
+	      <div class="row">
+		      <div class="col s4 title">ID</div>
+		      <div class="col s4 title">ユーザID</div>
+		      <div class="col s4 title"></div>
+		      <div class="col s4">5</div>
+		      <div class="col s4">ABCDE</div>
+		      <div class="col s4">
+			      <a class="waves-effect waves-light btn"  href="Index.html?user_id=${user.id}">一覧</a>
+			      <a class="waves-effect waves-light btn middle" href="Edit.html?user_id=${user.id}">編集</a>
+			      <a class="waves-effect waves-light btn"  href="UserDelete?user_id=${user.id}" onclick='return confirm("本当に「${user.name}」を削除しますか？");'>削除</a>
+		      </div>
+  		  </div>
+		</div>
+	</div>
+		<footer>
+			<div class="foot_wrapper">
+				<ul>
+					<li>Blog</li>
+					<li>©2019 TSUJI AKIHIRO</li>
+				</ul>
+			</div>
+		</footer>
+	</body>
+</html>
