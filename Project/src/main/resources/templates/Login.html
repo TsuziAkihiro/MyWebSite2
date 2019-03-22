@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8">
 	<title>Login</title>
@@ -9,15 +9,15 @@
 </head>
 <body>
 	<div class="top-wrapper">
-		<a href="Login.html" style="color:black; text-decoration:none;"><h1>Blog</h1></a>
-		<form action="Index.html" method="post">
+		<a href="/" style="color:black; text-decoration:none;"><h1>Blog</h1></a>
+		<form action="Index" th:href="@{/Index}">
 			<ul>
 				<li><input type="text" name="loginId" placeholder="ID" class="id"></input></li>
 				<li><input type="password" name="password" placeholder="パスワード" class="pass"></input></li>
 			</ul>
 			<button class="angle"><i class="fas fa-angle-right"></i></button>
 		</form>
-		<p><span>まだアカウントをお持ちではありませんか？</span><a href="Regist.html">今すぐ登録</a></p>
+		<p><span>まだアカウントをお持ちではありませんか？</span><a href="Regist" th:href="@{/Regist}">今すぐ登録</a></p>
 	</div>
 </body>
 </html>

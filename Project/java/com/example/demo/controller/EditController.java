@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class LoginController {
+public class EditController {
 //
 //	@Autowired
 //	TaskRepository taskRepo;
@@ -17,8 +17,8 @@ public class LoginController {
 //        return sample;
 //    }
 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public ModelAndView Login(ModelAndView model) {
+	@RequestMapping(value = "/Edit", method = RequestMethod.GET)
+	public ModelAndView Edit(ModelAndView model) {
 		// TODOリスト取得
 //		List<Task> taskList = taskRepo.findAll();
 
@@ -26,7 +26,7 @@ public class LoginController {
 //		model.addObject("taskList", taskList);
 
 		// 画面描画用のテンプレート名を指定
-		model.setViewName("Login");
+		model.setViewName("Edit");
 		return model;
 	}
 }

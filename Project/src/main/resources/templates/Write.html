@@ -1,20 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html  xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8">
 	<title>Index</title>
-	<link rel="stylesheet" href="Write.css">
-		<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+	<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+	<link rel="stylesheet" media="all" th:href="@{/css/Write.css}"/>
+
 
 </head>
 <body>
 	<header>
 		<ul>
-			<li><a href="Write.html">Write</a></li>
-			<li><a href="Edit.html">Edit</a></li>
-			<li><a href="Login.html">Logout</a></li>
+			<li><a href="Write">Write</a></li>
+			<li><a href="Edit">Edit</a></li>
+			<li><a href="/">Logout</a></li>
 		</ul>
-		<a href="Index.html" class="title">Blog</a>
+		<a href="Index" class="title">Blog</a>
 	</header>
 	<p class="write">Write</p>
 	<div class="page_wrapper">
