@@ -26,7 +26,7 @@ public class LoginController {
 //		model.addObject("taskList", taskList);
 
 		// 画面描画用のテンプレート名を指定
-		model.setViewName("tasks");
+		model.setViewName("Login");
 		return model;
 	}
 }
