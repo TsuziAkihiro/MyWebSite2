@@ -1,8 +1,8 @@
 package com.example.demo.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -17,16 +17,20 @@ public class EditController {
 //        return sample;
 //    }
 
-	@RequestMapping(value = "/Edit", method = RequestMethod.GET)
-	public ModelAndView Edit(ModelAndView model) {
-		// TODOリスト取得
-//		List<Task> taskList = taskRepo.findAll();
-
-		// 取得したリストをモデルに設定
-//		model.addObject("taskList", taskList);
+	@GetMapping("/Edit")
+	public ModelAndView editGet(ModelAndView model) {
 
 		// 画面描画用のテンプレート名を指定
 		model.setViewName("Edit");
+		return model;
+	}
+
+	@PostMapping("/Edit")
+	public ModelAndView editPost(ModelAndView model) {
+
+
+		// 画面描画用のテンプレート名を指定
+		model.setViewName("redirect:Index");
 		return model;
 	}
 }

@@ -20,6 +20,7 @@ public class WriteController {
 	@GetMapping("/Write")
 	public ModelAndView WriteGet(ModelAndView model) {
 
+
 		// 画面描画用のテンプレート名を指定
 		model.setViewName("Write");
 		return model;

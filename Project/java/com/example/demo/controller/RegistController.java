@@ -20,6 +20,7 @@ public class RegistController {
 	@GetMapping("/Regist")
 	public ModelAndView RegistGet(ModelAndView model) {
 
+
 		// 画面描画用のテンプレート名を指定
 		model.setViewName("Regist");
 		return model;
@@ -29,9 +30,8 @@ public class RegistController {
 	public ModelAndView RegistPost(ModelAndView model) {
 
 
-
 		// 画面描画用のテンプレート名を指定
-		model.setViewName("Regist");
+		model.setViewName("redirect:Index");
 		return model;
 	}
 }
