@@ -1,8 +1,8 @@
 package com.example.demo.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -17,13 +17,18 @@ public class RegistController {
 //        return sample;
 //    }
 
-	@RequestMapping(value = "/Regist", method = RequestMethod.GET)
-	public ModelAndView Regist(ModelAndView model) {
-		// TODOリスト取得
-//		List<Task> taskList = taskRepo.findAll();
+	@GetMapping("/Regist")
+	public ModelAndView RegistGet(ModelAndView model) {
 
-		// 取得したリストをモデルに設定
-//		model.addObject("taskList", taskList);
+		// 画面描画用のテンプレート名を指定
+		model.setViewName("Regist");
+		return model;
+	}
+
+	@PostMapping("/Regist")
+	public ModelAndView RegistPost(ModelAndView model) {
+
+
 
 		// 画面描画用のテンプレート名を指定
 		model.setViewName("Regist");

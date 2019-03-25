@@ -19,8 +19,9 @@ public class IndexController {
 
 	@RequestMapping(value = "/Index", method = RequestMethod.GET)
 	public ModelAndView index(ModelAndView model) {
+
 		// TODOリスト取得
-//		List<Task> taskList = taskRepo.findAll();
+//		List<User> taskList = taskRepo.findAll();
 
 		// 取得したリストをモデルに設定
 //		model.addObject("taskList", taskList);

@@ -1,8 +1,8 @@
 package com.example.demo.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -17,16 +17,20 @@ public class WriteController {
 //        return sample;
 //    }
 
-	@RequestMapping(value = "/Write", method = RequestMethod.GET)
-	public ModelAndView Write(ModelAndView model) {
-		// TODOリスト取得
-//		List<Task> taskList = taskRepo.findAll();
-
-		// 取得したリストをモデルに設定
-//		model.addObject("taskList", taskList);
+	@GetMapping("/Write")
+	public ModelAndView WriteGet(ModelAndView model) {
 
 		// 画面描画用のテンプレート名を指定
 		model.setViewName("Write");
+		return model;
+	}
+
+	@PostMapping("/Write")
+	public ModelAndView WritePost(ModelAndView model) {
+
+
+		// 画面描画用のテンプレート名を指定
+		model.setViewName("redirect:Index");
 		return model;
 	}
 }

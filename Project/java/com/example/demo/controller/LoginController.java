@@ -1,15 +1,19 @@
 package com.example.demo.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.demo.entity.UserRepository;
+
 @Controller
 public class LoginController {
-//
-//	@Autowired
-//	TaskRepository taskRepo;
+
+	@Autowired
+	UserRepository userRepo;
 
 //	@ModelAttribute("sampleForm")
 //    public SampleForm setupForm() {
@@ -18,15 +22,17 @@ public class LoginController {
 //    }
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public ModelAndView Login(ModelAndView model) {
-		// TODOリスト取得
-//		List<Task> taskList = taskRepo.findAll();
+	public ModelAndView LoginGet(ModelAndView model) {
 
-		// 取得したリストをモデルに設定
-//		model.addObject("taskList", taskList);
-
-		// 画面描画用のテンプレート名を指定
 		model.setViewName("Login");
+		return model;
+	}
+
+	@PostMapping("/")
+	public ModelAndView LoginPost(ModelAndView model) {
+
+
+		model.setViewName("redirect:/Index");
 		return model;
 	}
 }
