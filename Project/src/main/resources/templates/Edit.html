@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html  xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8">
 	<title>Edit</title>
@@ -15,12 +15,12 @@
 		</ul>
 		<a href="Index" class="title">Blog</a>
 	</header>
-	<p class="edit">Admin:Edit</p>
-		<form action="Index">
+	<p class="edit"><a href="Edit">Admin:Edit</a></p>
+		<form action="#" th:href="@{/Edit}" th:object="${userForm}" method="post">
 			<div class="update">
 				<ul>
-					<li><input type="text" name="loginId" placeholder="ID" class="id" value="##0001"></input></li>
-					<li><input type="password" name="password" placeholder="パスワード" class="pass" value="##0001"></input></li>
+					<li><input type="text" placeholder="ID" class="id" value="##0001" th:field="*{user_id}"></input></li>
+					<li><input type="password" placeholder="パスワード" class="pass" value="##0001" th:field="*{password}"></input></li>
 				</ul>
 			</div>
 			<div  class="change">
@@ -30,7 +30,7 @@
 		<footer>
 			<div class="foot_wrapper">
 				<ul>
-					<li>Blog</li>
+					<li><a href="Index">Blog</a></li>
 					<li>©2019 TSUJI AKIHIRO</li>
 				</ul>
 			</div>

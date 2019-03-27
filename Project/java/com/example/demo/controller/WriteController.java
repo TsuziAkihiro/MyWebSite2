@@ -2,8 +2,11 @@ package com.example.demo.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.example.demo.form.ArticleForm;
 
 @Controller
 public class WriteController {
@@ -11,11 +14,11 @@ public class WriteController {
 //	@Autowired
 //	TaskRepository taskRepo;
 
-//	@ModelAttribute("sampleForm")
-//    public SampleForm setupForm() {
-//        SampleForm sample = new SampleForm();
-//        return sample;
-//    }
+	@ModelAttribute("articleForm")
+    public ArticleForm setupForm() {
+        ArticleForm article = new ArticleForm();
+        return article;
+    }
 
 	@GetMapping("/Write")
 	public ModelAndView WriteGet(ModelAndView model) {
@@ -27,7 +30,9 @@ public class WriteController {
 	}
 
 	@PostMapping("/Write")
-	public ModelAndView WritePost(ModelAndView model) {
+	public ModelAndView WritePost(ModelAndView model,
+			@ModelAttribute ArticleForm articleForm
+			) {
 
 
 		// 画面描画用のテンプレート名を指定

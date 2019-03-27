@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html  xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8">
 	<title>Regist</title>
@@ -9,10 +9,10 @@
 <body>
 	<div class="top-wrapper">
 		<a href="/" style="color:black; text-decoration:none;"><h1>Regist</h1></a>
-		<form action="Regist" th:href="@{/Regist}" method="Post">
+		<form action="#" th:href="@{/Regist}"  th:object="${userForm}" method="Post">
 			<ul>
-				<li><input type="text" name="loginId" placeholder="ID" class="id"></input></li>
-				<li><input type="text" name="password" placeholder="パスワード" class="pass"></input></li>
+				<li><input type="text" placeholder="ID" class="id" th:field="*{user_id}"></input></li>
+				<li><input type="text" placeholder="パスワード" class="pass" th:field="*{password}"></input></li>
 			</ul>
 			<button class="right_angle"><i class="fas fa-angle-down"></i></button>
 			<a href="/" class="left_angle"><i class="fas fa-angle-left"></i></a>

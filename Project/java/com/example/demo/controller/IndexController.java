@@ -19,8 +19,18 @@ public class IndexController {
 	@GetMapping("/Index")
 	public ModelAndView indexGet(ModelAndView model) {
 
+
 		// 画面描画用のテンプレート名を指定
 		model.setViewName("Index");
+		return model;
+	}
+
+	@GetMapping("/Delete")
+	public ModelAndView delete(ModelAndView model) {
+
+
+		// 画面描画用のテンプレート名を指定
+		model.setViewName("redirect:Index");
 		return model;
 	}
 }
