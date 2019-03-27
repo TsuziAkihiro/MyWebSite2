@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,7 +9,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.example.demo.entity.User;
 import com.example.demo.entity.UserRepository;
 import com.example.demo.form.UserForm;
 
@@ -17,10 +18,11 @@ import com.example.demo.form.UserForm;
 public class LoginController {
 
 
-
 	@Autowired
 	UserRepository userRepo;
 
+	@Autowired
+	HttpSession session;
 
 	@ModelAttribute("userForm")
     public UserForm setupForm() {
@@ -42,16 +44,31 @@ public class LoginController {
 	@PostMapping("/")
 	public ModelAndView loginPost(ModelAndView model,
 			@ModelAttribute UserForm userForm
-			) {
-
-		User user = new User();
-		user.setUser_id(userForm.getUser_id());
-		user.setPassword(userForm.getPassword());
+	) {
 
 
-		model.setViewName("redirect:Index");
-		return model;
+	    // 保存
+	    session.setAttribute("user", "user");
+
+	    String admin = "";
+
+	    if(userForm.getUser_id() == admin) {
+			model.setViewName("redirect:Management");
+			return model;
+
+	    }else {
+			model.setViewName("redirect:Index");
+			return model;
+	    }
 	}
 
 
+	@GetMapping("/Logout")
+	public ModelAndView logoutGet(ModelAndView model) {
+
+		session.invalidate(); // ログアウト処理]
+
+		model.setViewName("redirect:/");
+		return model;
+	}
 }

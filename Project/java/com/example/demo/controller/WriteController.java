@@ -6,13 +6,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.demo.entity.Article;
 import com.example.demo.form.ArticleForm;
 
 @Controller
 public class WriteController {
-//
-//	@Autowired
-//	TaskRepository taskRepo;
+
 
 	@ModelAttribute("articleForm")
     public ArticleForm setupForm() {
@@ -34,6 +33,9 @@ public class WriteController {
 			@ModelAttribute ArticleForm articleForm
 			) {
 
+		Article article = new Article();
+		article.setTitle(articleForm.getTitle());
+		article.setText(articleForm.getText());
 
 		// 画面描画用のテンプレート名を指定
 		model.setViewName("redirect:Index");
