@@ -24,6 +24,7 @@ public class LoginController {
 	@Autowired
 	HttpSession session;
 
+
 	@ModelAttribute("userForm")
     public UserForm setupForm() {
         UserForm user = new UserForm();
@@ -50,7 +51,7 @@ public class LoginController {
 	    // 保存
 	    session.setAttribute("user", "user");
 
-	    if(userForm.getUser_id() == "admin") {
+	    if("admin".equals(userForm.getUser_id())) {
 			model.setViewName("redirect:Management");
 			return model;
 

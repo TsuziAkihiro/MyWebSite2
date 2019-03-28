@@ -42,7 +42,10 @@ public class RegistController {
 		// 取得したパラメータをもとに登録用データを作成
 		User user = new User();
 		user.setUser_id(userForm.getUser_id());
-		user.setPassword(userForm.getPassword());
+
+		String password = support.changeMD5(userForm.getPassword());
+		user.setPassword(password);
+
 		user.setCreateDate(new Date());
 		user.setUpdateDate(new Date());
 
@@ -54,4 +57,6 @@ public class RegistController {
 		model.setViewName("redirect:Index");
 		return model;
 	}
+
+
 }
