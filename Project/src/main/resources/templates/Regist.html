@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div class="top-wrapper">
-		<a href="/" style="color:black; text-decoration:none;"><h1>Regist</h1></a>
+		<a href="Regist" style="color:black; text-decoration:none;"><h1>Regist</h1></a>
 		<form action="#" th:href="@{/Regist}"  th:object="${userForm}" method="Post">
 			<ul>
 				<li><input type="text" placeholder="ID" class="id" th:field="*{user_id}" required></input></li>

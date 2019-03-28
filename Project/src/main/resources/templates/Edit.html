@@ -15,7 +15,7 @@
 		</ul>
 		<a href="Index" class="title">Blog</a>
 	</header>
-	<p class="edit" th:text="#{user.user_id}"><a href="Edit"></a></p>
+	<p class="edit" th:inline="text"><a href="Edit">[[${session.user.user_id}]]:Edit</a></p>
 		<form action="#" th:href="@{/Edit}" th:object="${userForm}" method="post">
 			<div class="update">
 				<ul>
