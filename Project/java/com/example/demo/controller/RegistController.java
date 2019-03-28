@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -53,6 +54,9 @@ public class RegistController {
 
 		user.setCreateDate(new Date());
 		user.setUpdateDate(new Date());
+
+		List<User> artListcc = userRepo.findByUserId("a");
+
 
 		// 登録
 		userRepo.save(user);

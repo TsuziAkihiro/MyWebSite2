@@ -54,6 +54,7 @@ public class LoginController {
 	    // 保存
 	    session.setAttribute("user", us);
 
+
 	    if("admin".equals(userForm.getUser_id())) {
 			model.setViewName("redirect:Management");
 			return model;
