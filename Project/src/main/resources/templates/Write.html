@@ -22,9 +22,9 @@
 					<div class="detail">
 						<h1>新規投稿</h1>
 						<p>タイトル</p>
-						<input type="text" th:field="*{title}">
+						<input type="text" th:field="*{title}" required>
 						<p>本文</p>
-						<textarea th:field="*{text}"></textarea>
+						<textarea th:field="*{text}" required></textarea>
 						<input type="submit" style="cursor:pointer;">
 					</div>
 				</div>

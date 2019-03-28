@@ -1,28 +1,34 @@
 package com.example.demo.controller;
 
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.demo.entity.User;
+
 @Controller
 public class IndexController {
-//
-//	@Autowired
-//	TaskRepository taskRepo;
 
-//	@ModelAttribute("sampleForm")
-//    public SampleForm setupForm() {
-//        SampleForm sample = new SampleForm();
-//        return sample;
-//    }
+	@Autowired
+	HttpSession session;
 
 	@GetMapping("/Index")
 	public ModelAndView indexGet(ModelAndView model) {
 
+		User u = (User)session.getAttribute("user");
 
-		// 画面描画用のテンプレート名を指定
-		model.setViewName("Index");
-		return model;
+		if("admin".equals(u.getUser_id())) {
+			// 画面描画用のテンプレート名を指定
+			model.setViewName("redirect:Management");
+			return model;
+		}else {
+			// 画面描画用のテンプレート名を指定
+			model.setViewName("Index");
+			return model;
+		}
 	}
 
 	@GetMapping("/Delete")

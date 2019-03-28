@@ -2,6 +2,8 @@ package com.example.demo.controller;
 
 import java.util.Date;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +20,9 @@ public class RegistController {
 
 	@Autowired
 	UserRepository userRepo;
+
+	@Autowired
+	HttpSession session;
 
 	@ModelAttribute("userForm")
     public UserForm setupForm() {
@@ -52,6 +57,12 @@ public class RegistController {
 		// 登録
 		userRepo.save(user);
 
+		// セッション用データ生成
+		User us = new User();
+		us.setUser_id(userForm.getUser_id());
+
+	    // 保存
+	    session.setAttribute("user", us);
 
 		// 画面描画用のテンプレート名を指定
 		model.setViewName("redirect:Index");

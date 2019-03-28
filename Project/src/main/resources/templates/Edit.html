@@ -15,11 +15,11 @@
 		</ul>
 		<a href="Index" class="title">Blog</a>
 	</header>
-	<p class="edit"><a href="Edit">Admin:Edit</a></p>
+	<p class="edit" th:text="#{user.user_id}"><a href="Edit"></a></p>
 		<form action="#" th:href="@{/Edit}" th:object="${userForm}" method="post">
 			<div class="update">
 				<ul>
-					<li><input type="text" placeholder="ID" class="id" value="##0001" th:field="*{user_id}"></input></li>
+					<li><input type="text" placeholder="ID" class="id" value="##0001" th:field="*{user_id}" required></input></li>
 					<li><input type="password" placeholder="パスワード" class="pass" value="##0001" th:field="*{password}"></input></li>
 				</ul>
 			</div>

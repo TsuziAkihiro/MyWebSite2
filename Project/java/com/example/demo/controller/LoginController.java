@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.demo.entity.User;
 import com.example.demo.entity.UserRepository;
 import com.example.demo.form.UserForm;
 
@@ -47,9 +48,11 @@ public class LoginController {
 			@ModelAttribute UserForm userForm
 	) {
 
+		User us = new User();
+		us.setUser_id(userForm.getUser_id());
 
 	    // 保存
-	    session.setAttribute("user", "user");
+	    session.setAttribute("user", us);
 
 	    if("admin".equals(userForm.getUser_id())) {
 			model.setViewName("redirect:Management");
@@ -65,7 +68,8 @@ public class LoginController {
 	@GetMapping("/Logout")
 	public ModelAndView logoutGet(ModelAndView model) {
 
-		session.invalidate(); // ログアウト処理]
+
+		session.invalidate();
 
 		model.setViewName("redirect:/");
 		return model;
