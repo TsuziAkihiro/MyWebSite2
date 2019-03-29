@@ -1,7 +1,6 @@
 package com.example.demo.controller;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -45,6 +44,16 @@ public class RegistController {
 			@ModelAttribute UserForm userForm
 			) {
 
+		User checkUser = userRepo.findByUserIdEquals(userForm.getUser_id());
+
+		if(checkUser != null) {
+
+			// もし登録されている情報が見つかれば登録に戻る
+			model.setViewName("redirect:Regist");
+			return model;
+		}
+
+
 		// 取得したパラメータをもとに登録用データを作成
 		User user = new User();
 		user.setUser_id(userForm.getUser_id());
@@ -55,18 +64,16 @@ public class RegistController {
 		user.setCreateDate(new Date());
 		user.setUpdateDate(new Date());
 
-		List<User> userListcc = userRepo.findByUserId("a");
-
 
 		// 登録
 		userRepo.save(user);
 
 		// セッション用データ生成
-		User us = new User();
-		us.setUser_id(userForm.getUser_id());
+		User myUser = new User();
+		myUser = userRepo.findByUserIdAndPassword(userForm.getUser_id(),password);
 
 	    // 保存
-	    session.setAttribute("user", us);
+	    session.setAttribute("user", myUser);
 
 		// 画面描画用のテンプレート名を指定
 		model.setViewName("redirect:Index");

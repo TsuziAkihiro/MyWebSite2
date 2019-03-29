@@ -2,10 +2,12 @@ package com.example.demo.entity;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 // t_userテーブルのエンティティ
 @Entity
@@ -15,10 +17,12 @@ public class Article {
 	@GeneratedValue
 	private Integer id;
 
-	private String user_id;
+	@Column(name = "user_id")
+	private String userId;
 
 	private String title;
 
+	@Size(max = 5000)
 	private String text;
 
 	private Date createDate;
@@ -32,11 +36,11 @@ public class Article {
 	}
 
 	public String getUser_id() {
-		return user_id;
+		return userId;
 	}
 
 	public void setUser_id(String user_id) {
-		this.user_id = user_id;
+		this.userId = user_id;
 	}
 
 	public String getTitle() {

@@ -12,6 +12,11 @@ import org.springframework.transaction.annotation.Transactional;
 public interface UserRepository extends JpaRepository<User, Integer>{
 	 public List<User> findByUserId(String userId);
 
+	 public User findByUserIdAndPassword(String userId,String password);
+
+	 public User findByUserIdEquals(String userId);
+
+	 public List<User> findByUserIdNot(String userId);
 
 }
 

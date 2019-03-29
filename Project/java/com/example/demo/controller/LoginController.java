@@ -37,6 +37,14 @@ public class LoginController {
 	@GetMapping("/")
 	public ModelAndView loginGet(ModelAndView model) {
 
+		User u = (User)session.getAttribute("user");
+
+		if(u != null) {
+
+			// 画面描画用のテンプレート名を指定
+			model.setViewName("redirect:Index");
+			return model;
+		}
 
 		model.setViewName("Login");
 		return model;
@@ -48,11 +56,19 @@ public class LoginController {
 			@ModelAttribute UserForm userForm
 	) {
 
-		User us = new User();
-		us.setUser_id(userForm.getUser_id());
+		String password = support.changeMD5(userForm.getPassword());
 
-	    // 保存
-	    session.setAttribute("user", us);
+		User myUser = userRepo.findByUserIdAndPassword(userForm.getUser_id(),password);
+
+		if(myUser == null) {
+
+			// もしログイン情報が見つからなければログインに戻る
+			model.setViewName("redirect:/");
+			return model;
+		}
+
+		// 保存
+	    session.setAttribute("user", myUser);
 
 
 	    if("admin".equals(userForm.getUser_id())) {

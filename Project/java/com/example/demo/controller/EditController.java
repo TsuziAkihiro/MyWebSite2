@@ -54,15 +54,33 @@ public class EditController {
 			@ModelAttribute UserForm userForm
 			) {
 
+		// 重複チェック
+		User checkUser = userRepo.findByUserIdEquals(userForm.getUser_id());
+
+		if(checkUser != null) {
+
+			// もし登録されている情報が見つかれば登録に戻る
+			model.setViewName("redirect:Edit");
+			return model;
+		}
+
+		User u = (User)session.getAttribute("user");
+
+		String password = support.changeMD5(userForm.getPassword());
 
 		// 取得したパラメータをもとに登録用データを作成
 		User user = new User();
+		user.setId(u.getId());
 		user.setUser_id(userForm.getUser_id());
-		user.setPassword(userForm.getPassword());
+		user.setPassword(password);
+		user.setCreateDate(u.getCreateDate());
 		user.setUpdateDate(new Date());
 
 		// 登録
 		userRepo.save(user);
+
+		// 保存
+	    session.setAttribute("user",user);
 
 		// 画面描画用のテンプレート名を指定
 		model.setViewName("redirect:Index");
