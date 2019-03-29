@@ -36,6 +36,13 @@ public class EditController {
 	@GetMapping("/Edit")
 	public ModelAndView editGet(ModelAndView model) {
 
+		User u = (User)session.getAttribute("user");
+
+		if(u == null){
+			// セッションにログイン情報がない場合ログイン画面へ
+			model.setViewName("redirect:/");
+			return model;
+		}
 
 		// 画面描画用のテンプレート名を指定
 		model.setViewName("Edit");
@@ -46,6 +53,7 @@ public class EditController {
 	public ModelAndView editPost(ModelAndView model,
 			@ModelAttribute UserForm userForm
 			) {
+
 
 		// 取得したパラメータをもとに登録用データを作成
 		User user = new User();

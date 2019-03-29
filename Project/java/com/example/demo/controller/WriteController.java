@@ -36,6 +36,14 @@ public class WriteController {
 	public ModelAndView WriteGet(ModelAndView model) {
 
 
+		User u = (User)session.getAttribute("user");
+
+		if(u == null){
+			// セッションにログイン情報がない場合ログイン画面へ
+			model.setViewName("redirect:/");
+			return model;
+		}
+
 		// 画面描画用のテンプレート名を指定
 		model.setViewName("Write");
 		return model;

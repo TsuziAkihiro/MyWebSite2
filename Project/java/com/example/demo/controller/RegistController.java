@@ -55,7 +55,7 @@ public class RegistController {
 		user.setCreateDate(new Date());
 		user.setUpdateDate(new Date());
 
-		List<User> artListcc = userRepo.findByUserId("a");
+		List<User> userListcc = userRepo.findByUserId("a");
 
 
 		// 登録

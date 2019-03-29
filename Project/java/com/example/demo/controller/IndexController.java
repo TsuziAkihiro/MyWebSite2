@@ -28,6 +28,13 @@ public class IndexController {
 
 		User u = (User)session.getAttribute("user");
 
+		if(u == null){
+			// セッションにログイン情報がない場合ログイン画面へ
+			model.setViewName("redirect:/");
+			return model;
+		}
+
+
 		if("admin".equals(u.getUser_id())) {
 
 			// 画面描画用のテンプレート名を指定
@@ -35,8 +42,6 @@ public class IndexController {
 			return model;
 
 		}else {
-
-
 
 			// 記事リスト取得
 			List<Article> artList = artRepo.findAll();
